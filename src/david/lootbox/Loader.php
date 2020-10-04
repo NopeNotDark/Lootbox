@@ -44,7 +44,7 @@ class Loader extends PluginBase {
 
     /**
      * @return LootboxManager
-     */
+     */ 
     public function getLootboxManager(): LootboxManager {
         return $this->lootboxManager;
     }
