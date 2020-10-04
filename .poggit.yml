@@ -6,4 +6,7 @@ projects:
   Lootbox:
     path: ""
     icon: “icon.jpg
+    libs:
+      - src: muqsit\invmenu
+        version: 4.0
 ...
