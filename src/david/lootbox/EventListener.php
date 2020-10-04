@@ -10,6 +10,9 @@ use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\nbt\tag\StringTag;
 use pocketmine\Player;
+use pocketmine\event\server\DataPacketReceiveEvent;
+use pocketmine\event\server\DataPacketSendEvent;
+use pocketmine\network\mcpe\protocol\ContainerClosePacket;
 
 class EventListener implements Listener {
 
