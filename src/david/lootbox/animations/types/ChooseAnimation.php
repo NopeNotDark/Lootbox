@@ -86,10 +86,12 @@ class ChooseAnimation extends Animation {
                 $this->actualInventory->setItem($i, $chest);
             }
             $this->inventory->setListener(function(Player $player, Item $itemClicked, Item $itemClickedWith, SlotChangeAction $action): bool {
+                if($player instanceof Player){
                 if($itemClicked->getId() === Item::CHEST and $itemClicked->getDamage() === 3) {
                     $reward = $this->getReward();
                     $this->finalRewards[] = $reward;
                     $action->getInventory()->setItem($action->getSlot(), $reward->getItem());
+                  }
                 }
                 return false;
             });
