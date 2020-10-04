@@ -9,6 +9,6 @@ projects:
     libs:
       - src: muqsit/InvMenu/InvMenu
         version: 4.0
-    phpstan:
-        false
+    lint:
+      phpstan: false
 ...
