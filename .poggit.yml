@@ -7,6 +7,6 @@ projects:
     path: ""
     icon: “icon.jpg
     libs:
-      - src: muqsit\invmenu
+      - src: muqsit/InvMenu/InvMenu
         version: 4.0
 ...
