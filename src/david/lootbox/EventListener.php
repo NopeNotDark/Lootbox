@@ -15,6 +15,9 @@ class EventListener implements Listener {
 
     /** @var Loader */
     private $plugin;
+    
+    	/** @var bool */
+	private $cancel_send = true;
 
     /**
      * EventListener constructor.
@@ -50,4 +53,27 @@ class EventListener implements Listener {
             }
         }
     }
+    	/**
+	 * @param DataPacketSendEvent $event
+	 * @priority NORMAL
+	 * @ignoreCancelled true
+	 */
+	public function onDataPacketSend(DataPacketSendEvent $event) : void{
+		if($this->cancel_send && $event->getPacket() instanceof ContainerClosePacket){
+			$event->setCancelled();
+		}
+	}
+
+	/**
+	 * @param DataPacketReceiveEvent $event
+	 * @priority NORMAL
+	 * @ignoreCancelled true
+	 */
+	public function onDataPacketReceive(DataPacketReceiveEvent $event) : void{
+		if($event->getPacket() instanceof ContainerClosePacket){
+			$this->cancel_send = false;
+			$event->getPlayer()->sendDataPacket($event->getPacket(), false, true);
+			$this->cancel_send = true;
+		}
+	}
 }
